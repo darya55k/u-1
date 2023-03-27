@@ -1,0 +1,24 @@
+const { createApp } = Vue;
+//const { loadModule } = window['vue3-sfc-loader'];
+const app = createApp({
+  /*name: "LoginForm",
+   components: {
+    Form: VeeValidate.Form,
+    Field: VeeValidate.Field,
+    ErrorMessage: VeeValidate.ErrorMessage,
+  }, */
+  components: {
+    /*AuthView: Vue.defineAsyncComponent(() =>
+      loadModule('src/views/AuthView.vue', options)
+    ),*/
+    HeaderMenu: Vue.defineAsyncComponent(() =>
+      loadModule('src/components/HeaderMenu.vue', options)
+    ),
+    App: Vue.defineAsyncComponent(() =>
+      loadModule('src/App.vue', options)
+    ),
+
+  },
+}).use(store).use(router);
+app.mount('#app');
+window.app = app;
